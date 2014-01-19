@@ -47,11 +47,12 @@ namespace SuperPoderes
             //roles.All(x => { x = "," + x; return true; });
             //myCollection = myCollection.Select(m => m.Substring(0, 8)).ToArray();
 
-            //cadRegExp = string.Join(",", roles);
-            //timer.Restart();
-            //separateRolesRegularExp();
-            //timer.Stop();
-            //Console.WriteLine("Tiempo de ejecución con expresiones regulares: {0}", timer.Elapsed.ToString());
+            cadRegExp = string.Join(",,", roles);
+            cadRegExp = ",," + cadRegExp + ",,";
+            timer.Restart();
+            separateRolesRegularExp();
+            timer.Stop();
+            Console.WriteLine("Tiempo de ejecución con expresiones regulares: {0}", timer.Elapsed.ToString());
 
             Console.WriteLine("Pulsa una tecla para finalizar.");
             Console.ReadKey();
@@ -133,34 +134,25 @@ namespace SuperPoderes
             generateDat("VillanosForEach.dat", villains);
          }
 
-        //private void separateRolesRegularExp()
-        //{
-        //    string pattern = @",*d*,";
-        //    List<String> villains = new List<string>();
-        //    List<String> heroes = new List<string>();
-        //    Match match;
+        private void separateRolesRegularExp()
+        {
+            string pattern = @",[^,]*(d)[^,]*,";
+            List<String> villains = new List<string>();
+            List<String> heroes = new List<string>();
+            Match match;
 
-        //    Regex intAll = new Regex(pattern, RegexOptions.IgnoreCase);
-        //    match = intAll.Match(cadRegExp);
-        //    int matches = 0;
-        //    while (match.Success)
-        //    {
-        //        matches++;
-        //        // Do nothing with the match except get the next match.
-        //        match = match.NextMatch();
-        //    }
+            Regex intAll = new Regex(pattern, RegexOptions.IgnoreCase);
+            match = intAll.Match(cadRegExp);
+            int matches = 0;
+            while (match.Success)
+            {
+                matches++;
+                villains.Add(match.Value);
+                // Do nothing with the match except get the next match.
+                match = match.NextMatch();
+            }
+            generateDat("VillanosRegEx.dat", villains);
 
-        //    //foreach (string name in roles)
-        //    //{
-        //    //    if (Regex.IsMatch(name, pattern))
-        //    //    {
-        //    //        villains.Add(name);
-        //    //    }
-        //    //    else
-        //    //    {
-        //    //        heroes.Add(name);
-        //    //    }  
-        //    //}  
-        //}
+        }
     }
 }
