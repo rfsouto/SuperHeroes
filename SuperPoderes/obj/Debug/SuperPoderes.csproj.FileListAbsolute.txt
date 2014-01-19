@@ -4,4 +4,3 @@ C:\Proyectos\SuperPoderes\SuperPoderes\bin\Debug\SuperPoderes.pdb
 C:\Proyectos\SuperPoderes\SuperPoderes\obj\Debug\SuperPoderes.csprojResolveAssemblyReference.cache
 C:\Proyectos\SuperPoderes\SuperPoderes\obj\Debug\SuperPoderes.exe
 C:\Proyectos\SuperPoderes\SuperPoderes\obj\Debug\SuperPoderes.pdb
-C:\Proyectos\SuperPoderes\SuperPoderes\bin\Debug\REGISTRADOS.DAT
